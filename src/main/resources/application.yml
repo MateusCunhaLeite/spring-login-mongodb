@@ -9,6 +9,10 @@ spring:
   mongodb:
     # Connection string do MongoDB Atlas (obrigatória)
     uri: ${MONGODB_URI}
+  data:
+    mongodb:
+      # Cria na inicialização os índices declarados com @Indexed (ex.: e-mail único)
+      auto-index-creation: true
 
 app:
   # Tema visual: "default" ou "athena"
