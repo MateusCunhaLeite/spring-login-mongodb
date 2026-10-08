@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Área do aluno</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <header class="page-header">
+        <div>
+            <p class="eyebrow">Área do aluno</p>
+            <h1 th:text="|Bem-vindo(a), ${usuario.nome}!|">Bem-vindo(a)!</h1>
+        </div>
+    </header>
+
+    <section class="card">
+        <h2>Dados da sua conta</h2>
+        <dl class="data-list">
+            <dt>Nome</dt>
+            <dd th:text="${usuario.nome}">Nome</dd>
+            <dt>E-mail</dt>
+            <dd th:text="${usuario.email}">email@exemplo.com</dd>
+            <dt>Perfil</dt>
+            <dd><span class="badge" th:text="${usuario.role.rotulo}">Aluno</span></dd>
+            <dt>Situação</dt>
+            <dd><span class="status status-ativo" th:text="${usuario.ativo} ? 'Ativa' : 'Inativa'">Ativa</span></dd>
+            <dt>E-mail confirmado</dt>
+            <dd th:text="${usuario.emailConfirmado} ? 'Sim' : 'Ainda não (recurso em desenvolvimento)'">Não</dd>
+            <dt>Conta criada em</dt>
+            <dd th:text="${#temporals.format(usuario.criadoEm, 'dd/MM/yyyy HH:mm', 'America/Sao_Paulo')}">01/01/2026</dd>
+        </dl>
+    </section>
+</th:block>
+</body>
+</html>

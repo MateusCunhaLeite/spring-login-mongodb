@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Entrar</title>
+</head>
+<body>
+<section layout:fragment="content" class="card card-narrow">
+    <h1>Entrar</h1>
+    <p class="card-intro">Acesse com seu e-mail e senha.</p>
+
+    <p class="alert alert-error" role="alert" th:if="${param.erro}">E-mail ou senha inválidos.</p>
+    <p class="alert alert-error" role="alert" th:if="${param.inativa}">Sua conta está inativa. Procure um administrador.</p>
+    <p class="alert alert-success" role="status" th:if="${param.saiu}">Você saiu com sucesso.</p>
+    <p class="alert alert-success" role="status" th:if="${param.cadastrado}">Cadastro realizado! Faça login para continuar.</p>
+
+    <!-- th:action faz o Thymeleaf incluir o token CSRF automaticamente -->
+    <form th:action="@{/login}" method="post" class="form">
+        <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="username" required autofocus>
+        </div>
+        <div class="field">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+    </form>
+
+    <p class="card-footer">Ainda não tem conta? <a th:href="@{/cadastro}">Cadastre-se</a></p>
+</section>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Spring Boot 4.0.x: alinhado com o mongodb-spring-session 4.0 (Spring Session 4.0 / Security 7.0 / Data 2025.1) -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.8</version>
+		<relativePath/>
+	</parent>
+
+	<groupId>com.mateusleite</groupId>
+	<artifactId>login-seguro</artifactId>
+	<version>1.0.0</version>
+	<name>login-seguro</name>
+	<description>Sistema de login seguro com Spring Boot, Thymeleaf e MongoDB Atlas</description>
+
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- Web (Spring MVC) e páginas HTML com Thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!-- Layout base reutilizável (layout:decorate / layout:fragment) -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+
+		<!-- Autenticação e autorização (login, logout, BCrypt, roles) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- Atributos sec:* no Thymeleaf (mostrar nome/role do usuário logado) -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
+		<!-- Validação de formulários (@NotBlank, @Email...) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- Acesso ao MongoDB (Atlas) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+		<!-- Sessões HTTP guardadas no MongoDB (coleção "sessions").
+		     Desde o Spring Boot 4 esse módulo é mantido pela MongoDB Inc. (antes: spring-session-data-mongodb).
+		     A versão 4.0.x foi feita para a mesma linha do Boot 4.0 (Spring Session 4.0, Security 7.0, Data 2025.1). -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-spring-session</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
+		<!-- Testes -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

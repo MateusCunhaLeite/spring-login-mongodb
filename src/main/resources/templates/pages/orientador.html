@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Área do orientador</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <header class="page-header">
+        <div>
+            <p class="eyebrow">Área do orientador</p>
+            <h1>Alunos cadastrados</h1>
+        </div>
+        <p class="muted" th:text="${#lists.size(alunos)} == 1 ? '1 aluno' : |${#lists.size(alunos)} alunos|">0 alunos</p>
+    </header>
+
+    <section class="card">
+        <p class="empty" th:if="${#lists.isEmpty(alunos)}">Nenhum aluno cadastrado ainda.</p>
+
+        <div class="table-wrapper" th:unless="${#lists.isEmpty(alunos)}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Cadastrado em</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.nome}">Nome</td>
+                    <td th:text="${aluno.email}">email@exemplo.com</td>
+                    <td>
+                        <span class="status" th:classappend="${aluno.ativo} ? 'status-ativo' : 'status-inativo'"
+                              th:text="${aluno.ativo} ? 'Ativa' : 'Inativa'">Ativa</span>
+                    </td>
+                    <td th:text="${#temporals.format(aluno.criadoEm, 'dd/MM/yyyy', 'America/Sao_Paulo')}">01/01/2026</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</th:block>
+</body>
+</html>

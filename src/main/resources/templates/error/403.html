@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+    <title>Acesso negado</title>
+</head>
+<body>
+<section layout:fragment="content" class="card card-narrow error-page">
+    <p class="error-code">403</p>
+    <h1>Acesso negado</h1>
+    <p>Esta página é de outro perfil de usuário. Se você acha que deveria ter acesso, fale com um administrador.</p>
+    <a class="btn btn-primary" th:href="@{/dashboard}">Voltar ao meu painel</a>
+</section>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer th:fragment="footer" class="site-footer">
+    <div class="container">
+        <p>
+            <span th:text="|© ${#temporals.year(#temporals.createNow())} Mateus Leite|">© Mateus Leite</span>
+            · Projeto acadêmico com Spring Boot, Thymeleaf e MongoDB Atlas
+        </p>
+    </div>
+</footer>
+</body>
+</html>

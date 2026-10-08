@@ -1,0 +1,26 @@
+# Configuração principal. NÃO coloque segredos aqui: os valores sensíveis
+# vêm de variáveis de ambiente ou do arquivo .env (fora do Git).
+spring:
+  application:
+    name: login-seguro
+  config:
+    # Lê o .env da raiz do projeto, se existir (formato CHAVE=valor)
+    import: optional:file:.env[.properties]
+  mongodb:
+    # Connection string do MongoDB Atlas (obrigatória)
+    uri: ${MONGODB_URI}
+  data:
+    mongodb:
+      # Cria na inicialização os índices declarados com @Indexed (ex.: e-mail único)
+      auto-index-creation: true
+
+app:
+  # Tema visual: "default" ou "athena"
+  theme: ${APP_THEME:default}
+  registration:
+    # Se preenchido (ex.: umc.br), o cadastro só aceita e-mails desse domínio e subdomínios
+    allowed-domain: ${APP_ALLOWED_DOMAIN:}
+  admin:
+    # Primeiro administrador, criado na inicialização se ainda não existir
+    email: ${ADMIN_EMAIL:}
+    password: ${ADMIN_PASSWORD:}

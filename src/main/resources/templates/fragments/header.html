@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<header th:fragment="header" class="site-header">
+    <div class="container header-inner">
+        <a class="brand" th:href="@{/}">
+            <svg class="brand-mark" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+            <span class="brand-text">
+                <span class="brand-name" th:text="${tema.nome}">Login Seguro</span>
+                <span class="brand-tagline" th:text="${tema.subtitulo}">Autenticação com Spring Security</span>
+            </span>
+        </a>
+
+        <nav class="user-nav" aria-label="Conta">
+            <th:block sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/dashboard}">Meu painel</a>
+                <span class="user-info">
+                    <span sec:authentication="principal.nome">Nome do usuário</span>
+                    <span class="badge" sec:authentication="principal.role.rotulo">Aluno</span>
+                </span>
+                <!-- Logout é POST (com token CSRF): um link malicioso não consegue deslogar ninguém -->
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-header btn-small">Sair</button>
+                </form>
+            </th:block>
+            <th:block sec:authorize="isAnonymous()">
+                <a class="nav-link" th:href="@{/login}">Entrar</a>
+                <a class="btn btn-header btn-small" th:href="@{/cadastro}">Criar conta</a>
+            </th:block>
+        </nav>
+    </div>
+</header>
+</body>
+</html>
