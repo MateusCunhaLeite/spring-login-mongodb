@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Página não encontrada</title>
 </head>
 <body>
-<main class="container">
-    <section class="card card-narrow error-page">
-        <p class="error-code">404</p>
-        <h1>Página não encontrada</h1>
-        <p>O endereço pode estar errado ou a página não existe mais.</p>
-        <a class="btn btn-primary" th:href="@{/}">Ir para o início</a>
-    </section>
-</main>
+<section layout:fragment="content" class="card card-narrow error-page">
+    <p class="error-code">404</p>
+    <h1>Página não encontrada</h1>
+    <p>O endereço pode estar errado ou a página não existe mais.</p>
+    <a class="btn btn-primary" th:href="@{/}">Ir para o início</a>
+</section>
 </body>
 </html>

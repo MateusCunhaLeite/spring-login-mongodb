@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Início</title>
 </head>
 <body>
-<main class="container">
+<th:block layout:fragment="content">
     <section class="hero">
         <h1>Acesso seguro, do jeito certo.</h1>
         <p class="lead">Cadastro, login e áreas separadas para alunos, orientadores e administradores.</p>
@@ -20,6 +20,21 @@
             <a class="btn btn-primary" th:href="@{/dashboard}">Ir para o meu painel</a>
         </div>
     </section>
-</main>
+
+    <section class="features" aria-label="Recursos">
+        <article class="card">
+            <h2>Senhas protegidas</h2>
+            <p>As senhas são guardadas apenas como hash BCrypt. Nem o administrador consegue lê-las.</p>
+        </article>
+        <article class="card">
+            <h2>Acesso por perfil</h2>
+            <p>Aluno, orientador e administrador veem somente as páginas do seu perfil.</p>
+        </article>
+        <article class="card">
+            <h2>Dados na nuvem</h2>
+            <p>Usuários e sessões ficam no MongoDB Atlas, com conexão criptografada.</p>
+        </article>
+    </section>
+</th:block>
 </body>
 </html>

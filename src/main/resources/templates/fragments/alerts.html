@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Mensagens de feedback enviadas pelos controllers (flash attributes "sucesso" e "erro") -->
+<th:block th:fragment="alerts">
+    <p class="alert alert-success" role="status" th:if="${sucesso}" th:text="${sucesso}">Operação realizada.</p>
+    <p class="alert alert-error" role="alert" th:if="${erro}" th:text="${erro}">Algo deu errado.</p>
+</th:block>
+</body>
+</html>

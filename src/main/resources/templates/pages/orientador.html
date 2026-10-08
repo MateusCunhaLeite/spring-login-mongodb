@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Área do orientador</title>
 </head>
 <body>
-<main class="container">
+<th:block layout:fragment="content">
     <header class="page-header">
         <div>
             <p class="eyebrow">Área do orientador</p>
@@ -42,6 +42,6 @@
             </table>
         </div>
     </section>
-</main>
+</th:block>
 </body>
 </html>

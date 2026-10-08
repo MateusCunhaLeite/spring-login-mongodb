@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Administração</title>
 </head>
 <body>
-<main class="container">
+<th:block layout:fragment="content">
     <header class="page-header">
         <div>
             <p class="eyebrow">Administração</p>
             <h1>Usuários</h1>
         </div>
     </header>
-
-    <p class="alert alert-success" role="status" th:if="${sucesso}" th:text="${sucesso}">Sucesso</p>
-    <p class="alert alert-error" role="alert" th:if="${erro}" th:text="${erro}">Erro</p>
 
     <div class="admin-grid">
         <section class="card">
@@ -93,6 +89,6 @@
             </div>
         </section>
     </div>
-</main>
+</th:block>
 </body>
 </html>

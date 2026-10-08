@@ -1,0 +1,50 @@
+/* Tema "athena": identidade visual do Athena – O Portal do PFC. Sóbrio, acadêmico e com cantos retos. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+
+    --color-bg: #FBF9F4;
+    --color-surface: #ffffff;
+    --color-text: #1d2433;
+    --color-heading: #23398A;
+    --color-muted: #5a5f6b;
+    --color-link: #23398A;
+    --color-border: #e7e1d5;
+    --color-border-strong: #c8bfae;
+    --color-input-bg: #ffffff;
+    --color-row-hover: #fdfbf7;
+
+    --color-primary: #23398A;
+    --color-primary-hover: #1a2b6b;
+    --color-primary-soft: #eef0f8;
+    --color-on-primary: #ffffff;
+
+    --color-accent: #A97A46;
+    --color-accent-soft: #f6eee3;
+    --color-accent-strong: #7a5530;
+
+    --color-header-bg: #23398A;
+    --color-header-text: #ffffff;
+    --color-header-hover: rgba(255, 255, 255, .12);
+    --header-border: 3px solid #A97A46;
+    --color-brand-mark: #D9B88C;
+
+    --color-focus: #23398A;
+    --color-header-focus: #E6C79C;
+    --color-focus-ring: rgba(35, 57, 138, .22);
+
+    --color-success: #1E6E43;
+    --color-success-soft: #eaf4ee;
+    --color-success-strong: #1E6E43;
+    --color-error: #D6343C;
+    --color-error-soft: #fdeeee;
+    --color-error-strong: #a8262d;
+
+    --radius: 0;
+    --radius-sm: 0;
+    --radius-pill: 0;
+    --shadow: 0 1px 2px rgba(35, 57, 138, .05);
+    --card-top-border: 3px solid #23398A;
+}

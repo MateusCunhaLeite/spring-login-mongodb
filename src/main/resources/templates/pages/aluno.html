@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Área do aluno</title>
 </head>
 <body>
-<main class="container">
+<th:block layout:fragment="content">
     <header class="page-header">
         <div>
             <p class="eyebrow">Área do aluno</p>
@@ -31,6 +31,6 @@
             <dd th:text="${#temporals.format(usuario.criadoEm, 'dd/MM/yyyy HH:mm', 'America/Sao_Paulo')}">01/01/2026</dd>
         </dl>
     </section>
-</main>
+</th:block>
 </body>
 </html>
