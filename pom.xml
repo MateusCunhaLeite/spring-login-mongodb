@@ -61,6 +61,15 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
+		<!-- Sessões HTTP guardadas no MongoDB (coleção "sessions").
+		     Desde o Spring Boot 4 esse módulo é mantido pela MongoDB Inc. (antes: spring-session-data-mongodb).
+		     A versão 4.0.x foi feita para a mesma linha do Boot 4.0 (Spring Session 4.0, Security 7.0, Data 2025.1). -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-spring-session</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+
 		<!-- Testes -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
