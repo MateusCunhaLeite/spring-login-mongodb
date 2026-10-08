@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Algo deu errado</title>
 </head>
 <body>
-<main class="container">
-    <section class="card card-narrow error-page">
-        <p class="error-code" th:text="${status}">500</p>
-        <h1>Algo deu errado</h1>
-        <p>Não foi possível concluir a operação. Tente novamente em instantes.</p>
-        <a class="btn btn-primary" th:href="@{/}">Ir para o início</a>
-    </section>
-</main>
+<section layout:fragment="content" class="card card-narrow error-page">
+    <p class="error-code" th:text="${status}">500</p>
+    <h1>Algo deu errado</h1>
+    <p>Não foi possível concluir a operação. Tente novamente em instantes.</p>
+    <a class="btn btn-primary" th:href="@{/}">Ir para o início</a>
+</section>
 </body>
 </html>
