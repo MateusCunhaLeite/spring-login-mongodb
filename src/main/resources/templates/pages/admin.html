@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administração</title>
+</head>
+<body>
+<main class="container">
+    <header class="page-header">
+        <div>
+            <p class="eyebrow">Administração</p>
+            <h1>Usuários</h1>
+        </div>
+    </header>
+
+    <p class="alert alert-success" role="status" th:if="${sucesso}" th:text="${sucesso}">Sucesso</p>
+    <p class="alert alert-error" role="alert" th:if="${erro}" th:text="${erro}">Erro</p>
+
+    <div class="admin-grid">
+        <section class="card">
+            <h2>Novo orientador ou administrador</h2>
+            <form th:action="@{/admin/usuarios}" th:object="${form}" method="post" class="form" novalidate>
+                <div class="field">
+                    <label for="nome">Nome</label>
+                    <input type="text" th:field="*{nome}" th:errorclass="is-invalid" aria-describedby="nome-erro" required>
+                    <p class="field-error" id="nome-erro" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" th:field="*{email}" th:errorclass="is-invalid" aria-describedby="email-erro" required>
+                    <p class="field-error" id="email-erro" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                </div>
+                <div class="field">
+                    <label for="senha">Senha inicial</label>
+                    <input type="password" id="senha" name="senha" autocomplete="new-password"
+                           th:classappend="${#fields.hasErrors('senha')} ? 'is-invalid'"
+                           aria-describedby="senha-dica senha-erro" required>
+                    <p class="hint" id="senha-dica">Repasse a senha à pessoa. Mínimo de 8 caracteres, com letras e números.</p>
+                    <p class="field-error" id="senha-erro" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></p>
+                </div>
+                <div class="field">
+                    <label for="role">Perfil</label>
+                    <select th:field="*{role}" th:errorclass="is-invalid" aria-describedby="role-erro" required>
+                        <option value="">Selecione…</option>
+                        <option th:each="perfil : ${perfis}" th:value="${perfil}" th:text="${perfil.rotulo}">Orientador</option>
+                    </select>
+                    <p class="field-error" id="role-erro" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Criar usuário</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Todos os usuários <span class="muted" th:text="|(${#lists.size(usuarios)})|">(0)</span></h2>
+            <div class="table-wrapper">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Perfil</th>
+                        <th scope="col">Situação</th>
+                        <th scope="col"><span class="sr-only">Ações</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="u : ${usuarios}">
+                        <td>
+                            <strong th:text="${u.nome}">Nome</strong>
+                            <span class="cell-sub" th:text="${u.email}">email@exemplo.com</span>
+                        </td>
+                        <td><span class="badge" th:text="${u.role.rotulo}">Aluno</span></td>
+                        <td>
+                            <span class="status" th:classappend="${u.ativo} ? 'status-ativo' : 'status-inativo'"
+                                  th:text="${u.ativo} ? 'Ativa' : 'Inativa'">Ativa</span>
+                        </td>
+                        <td class="cell-actions">
+                            <!-- O admin não pode desativar a si mesmo (regra também garantida no UserService) -->
+                            <span class="muted" th:if="${u.email == #authentication.name}">Você</span>
+                            <th:block th:unless="${u.email == #authentication.name}">
+                                <form th:if="${u.ativo}" th:action="@{/admin/usuarios/{id}/desativar(id=${u.id})}" method="post">
+                                    <button type="submit" class="btn btn-danger btn-small">Desativar</button>
+                                </form>
+                                <form th:unless="${u.ativo}" th:action="@{/admin/usuarios/{id}/ativar(id=${u.id})}" method="post">
+                                    <button type="submit" class="btn btn-secondary btn-small">Ativar</button>
+                                </form>
+                            </th:block>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</main>
+</body>
+</html>
