@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Início</title>
+</head>
+<body>
+<main class="container">
+    <section class="hero">
+        <h1>Acesso seguro, do jeito certo.</h1>
+        <p class="lead">Cadastro, login e áreas separadas para alunos, orientadores e administradores.</p>
+
+        <div class="hero-actions" sec:authorize="isAnonymous()">
+            <a class="btn btn-primary" th:href="@{/login}">Entrar</a>
+            <a class="btn btn-secondary" th:href="@{/cadastro}">Criar conta</a>
+        </div>
+        <div class="hero-actions" sec:authorize="isAuthenticated()">
+            <a class="btn btn-primary" th:href="@{/dashboard}">Ir para o meu painel</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
