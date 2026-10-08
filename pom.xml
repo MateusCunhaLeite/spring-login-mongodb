@@ -13,7 +13,7 @@
 
 	<groupId>com.mateusleite</groupId>
 	<artifactId>login-seguro</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>login-seguro</name>
 	<description>Sistema de login seguro com Spring Boot, Thymeleaf e MongoDB Atlas</description>
 
