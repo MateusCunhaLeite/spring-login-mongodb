@@ -18,11 +18,11 @@ header-includes: |
   \usepackage{indentfirst}
   \usepackage{graphicx}
   \titulo{Sistema de Login Seguro com Spring Boot, Thymeleaf e MongoDB Atlas}
-  \local{[PREENCHER: cidade]}
-  \instituicao{Universidade de Mogi das Cruzes -- UMC \par [PREENCHER: curso]}
+  \local{Mogi das Cruzes}
+  \instituicao{Universidade de Mogi das Cruzes -- UMC \par Sistemas de Informação}
   \tipotrabalho{Relatório técnico}
-  \preambulo{Documentação técnica apresentada como atividade individual da disciplina [PREENCHER: disciplina], do curso de [PREENCHER: curso] da Universidade de Mogi das Cruzes.}
-  \orientador{Prof. [PREENCHER: nome do professor]}
+  \preambulo{Documentação técnica apresentada como atividade individual da disciplina Aplicativos Web, do curso de Sistemas de Informação da Universidade de Mogi das Cruzes.}
+  \orientador{Prof. Alessandro Horas}
 ---
 
 \imprimircapa
