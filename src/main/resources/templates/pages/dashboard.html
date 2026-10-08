@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel</title>
+</head>
+<body>
+<main class="container">
+    <section class="card">
+        <h1>Olá, <span sec:authentication="principal.nome">Usuário</span>!</h1>
+        <p>Perfil: <strong sec:authentication="principal.role">ALUNO</strong></p>
+
+        <!-- Logout é POST (com token CSRF) para que um link malicioso não consiga deslogar ninguém -->
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-secondary">Sair</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>
