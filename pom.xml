@@ -32,6 +32,17 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!-- Autenticação e autorização (login, logout, BCrypt, roles) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- Atributos sec:* no Thymeleaf (mostrar nome/role do usuário logado) -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
+		</dependency>
+
 		<!-- Validação de formulários (@NotBlank, @Email...) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
