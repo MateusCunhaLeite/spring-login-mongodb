@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Título final: "<título da página> · <nome do tema>" -->
+    <title layout:title-pattern="$CONTENT_TITLE · $LAYOUT_TITLE" th:text="${tema.nome}">Login Seguro</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2323398A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E">
+    <!-- O tema define as variáveis (cores, fontes); o base.css usa essas variáveis -->
+    <link rel="stylesheet" th:href="@{/themes/{id}/theme.css(id=${tema.id})}">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header th:replace="~{fragments/header :: header}"></header>
+
+<main id="conteudo" class="page">
+    <div class="container">
+        <div th:replace="~{fragments/alerts :: alerts}"></div>
+        <th:block layout:fragment="content"></th:block>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
