@@ -14,8 +14,11 @@ import com.mateusleite.loginseguro.user.User;
 /**
  * Usuário autenticado, guardado na sessão pelo Spring Security.
  * Leva só o necessário para as telas (nome, e-mail e role).
+ * É serializável porque a sessão é gravada no MongoDB (coleção "sessions").
  */
 public class UsuarioLogado implements UserDetails, CredentialsContainer {
+
+    private static final long serialVersionUID = 1L;
 
     private final String id;
     private final String nome;
