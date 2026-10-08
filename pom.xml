@@ -32,6 +32,12 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!-- Layout base reutilizável (layout:decorate / layout:fragment) -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+
 		<!-- Autenticação e autorização (login, logout, BCrypt, roles) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
