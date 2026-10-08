@@ -25,7 +25,6 @@ Projeto acadêmico individual, pensado para ser simples, organizado e reaproveit
 - [Sessões no MongoDB](#sessões-no-mongodb)
 - [Adaptação ao PFC (Cognito/JWT)](#adaptação-ao-pfc-cognitojwt)
 - [Fluxo de trabalho (Gitflow)](#fluxo-de-trabalho-gitflow)
-- [Documentação em PDF](#documentação-em-pdf)
 - [Trabalhos futuros](#trabalhos-futuros)
 
 ---
@@ -215,15 +214,6 @@ As regras `hasRole(...)`, os controllers e as páginas continuam iguais. O que m
 - `release/*`: preparação de versão, juntada na `main` e na `develop`.
 
 Commits seguem o padrão *Conventional Commits* (`feat:`, `fix:`, `docs:`, `test:`...). Para ver o histórico: `git log --oneline --graph --all`.
-
-## Documentação em PDF
-
-O texto da documentação (padrão ABNT) está em [`docs/documentacao.md`](docs/documentacao.md). O PDF é gerado com **Pandoc + LaTeX (classe abnTeX2)**:
-
-```bash
-sudo apt install -y pandoc texlive-latex-extra texlive-publishers texlive-lang-portuguese texlive-fonts-recommended
-./docs/gerar-pdf.sh         # gera docs/documentacao.pdf
-```
 
 ## Trabalhos futuros
 
