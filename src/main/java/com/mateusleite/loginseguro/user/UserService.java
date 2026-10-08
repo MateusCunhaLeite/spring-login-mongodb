@@ -22,6 +22,11 @@ public class UserService {
         return repository.existsByEmail(User.normalizarEmail(email));
     }
 
+    /** Cadastro público: a role é sempre ALUNO, nunca vem do formulário. */
+    public User cadastrarAluno(String nome, String email, String senha) {
+        return criar(nome, email, senha, Role.ALUNO);
+    }
+
     public User criar(String nome, String email, String senha, Role role) {
         String senhaHash = passwordEncoder.encode(senha);
         return repository.save(new User(nome, email, senhaHash, role));
